@@ -20,6 +20,7 @@ async function connect() {
     console.log(`Error connecting to the database: ${err}`);
   };
 };
+  
 
 //Instantiate an Express application
 const app = express();
@@ -36,13 +37,15 @@ app.get('/', (req, res) => {
     res.render('home');
 });
  
-app.post('submit',(req,res) => {
+app.post('/submit', async(req,res) => {
 
     const newPost = {
         author: req.body.author,
         title: req.body.title,
         content: req.body.content
     };
+
+    const conn= await connect();
     
     console.log(newPost);
     
