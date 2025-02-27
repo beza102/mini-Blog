@@ -1,7 +1,6 @@
 {
   "name": "mini-blog",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,5 +11,17 @@
   "dependencies": {
     "ejs": "^3.1.10",
     "express": "^4.21.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beza102/mini-Blog.git"
+  },
+  "bugs": {
+    "url": "https://github.com/beza102/mini-Blog/issues"
+  },
+  "homepage": "https://github.com/beza102/mini-Blog#readme",
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.1.9"
   }
 }
