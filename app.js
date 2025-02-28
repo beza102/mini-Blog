@@ -37,6 +37,24 @@ const PORT = 3000;
 app.get('/', (req, res) => {
     res.render('home');
 });
+
+//entries route
+app.get('/entries', async(req, res) =>{
+    
+        const conn = await connect();
+        try {
+            const posts = await conn.query('SELECT * FROM posts ORDER BY created_at DESC');
+            
+            // Return posts as JSON for now
+            res.json(posts);
+    
+        } catch (err) {
+            console.error("Error fetching posts:", err);
+            res.status(500).send("Error fetching posts");
+        } finally {
+            conn.release();
+        }
+});
  
 app.post('/submit', async(req,res) => {
 
