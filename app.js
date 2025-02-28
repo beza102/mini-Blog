@@ -1,6 +1,7 @@
 import express from "express";
 import mariadb from "mariadb";
 import dotenv from "dotenv";
+
 dotenv.config();
 
 const pool = mariadb.createPool({
@@ -47,10 +48,21 @@ app.post('/submit', async(req,res) => {
 
     const conn= await connect();
     
-    console.log(newPost);
-    
+    //console.log(newPost);
+    const orders = await conn.query(`INSERT INTO posts (
+      author,
+      title,
+      content
+      ) VALUES (?, ?,?)`,
+       [ posts.author,
+        posts.title,
+        posts.content
+      
+      ]);
+      
     res.render('confirmation', { post: newPost });
 });
+
     
 
 app.listen(PORT, () => {
