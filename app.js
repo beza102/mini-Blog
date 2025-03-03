@@ -46,7 +46,7 @@ app.get('/entries', async(req, res) =>{
             const posts = await conn.query('SELECT * FROM posts ORDER BY created_at DESC');
             
             // Return posts as JSON for now
-            res.json(posts);
+            res.render('entries', {posts});
     
         } catch (err) {
             console.error("Error fetching posts:", err);
