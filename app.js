@@ -40,8 +40,9 @@ app.get('/', (req, res) => {
 
 //entries route
 app.get('/entries', async(req, res) =>{
-    
+ 
         const conn = await connect();
+ 
         try {
             const posts = await conn.query('SELECT * FROM posts ORDER BY created_at DESC');
             
@@ -54,6 +55,7 @@ app.get('/entries', async(req, res) =>{
         } finally {
             conn.release();
         }
+
 });
  
 app.post('/submit', async(req,res) => {
