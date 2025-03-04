@@ -3,27 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creat a New Post</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <title>Create a New Post</title>
 </head>
 <body>
-    
-  <h1>Creat a New Post</h1>
-  <form action="submit" method="post">
-    <fieldset>
-        <lable>
-             <input type ="text" name="author" >
-        </lable>
 
-        <lable>
-            <input type="text" name="title">
-        </lable>
+    <div class="form-container">
+        <h1>Create a New Post</h1>
+        <form action="/submit" method="post">
 
-    <label>
-        <input type="text" name="content">
-    </label>
-    </fieldset>
-        <button type="submit">Submit</button>
-  </form>
-    
+            <input type="text" name="author" placeholder="Author" required>
+
+            <input type="text" name="title" placeholder="Title" required>
+
+            <textarea name="content" placeholder="Write your post..." rows="4" required></textarea>
+
+            <button type="submit">Submit</button>
+
+        </form>
+    </div>
+
 </body>
 </html>

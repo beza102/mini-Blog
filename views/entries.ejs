@@ -3,19 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <title>All Posts</title>
 </head>
 <body>
-    <h1>All Posts</h1>
 
-    <% if (posts.length === 0) { %>
-        <p>No Posts Found</p>
-    <% } else { %>
-        <% for (i=0; i < posts.length; i++) { %>
-            <h2><%= posts[i].title %></h2>
-            <p><%= posts[i].content %></p>
-            <p>Author: <%= posts[i].author %></p>
+    <div class="container">
+        <h1>All Posts</h1>
+
+        <% if (posts.length === 0) { %>
+            <p class="no-posts">No Posts Found</p>
+        <% } else { %>
+            <% for (let i = 0; i < posts.length; i++) { %>
+                <div class="post">
+                    <h2><%= posts[i].title %></h2>
+                    <p class="content"><%= posts[i].content %></p>
+                    <p class="author">Author: <%= posts[i].author %></p>
+                </div>
+            <% } %>
         <% } %>
-    <% } %>
+
+        <div class="post-links">
+            <a href="/create">Create a New Post</a> | <a href="/admin">View Admin Posts</a>
+        </div>
+    </div>
+
 </body>
 </html>
