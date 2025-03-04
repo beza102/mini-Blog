@@ -1,5 +1,6 @@
 import express from "express";
 import mariadb from "mariadb";
+import { validateForm } from "./services/validation.js";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -65,6 +66,13 @@ app.post('/submit', async(req,res) => {
         title: req.body.title,
         content: req.body.content
     };
+
+    const result = validateForm(newPost);
+    if(!result.isValid){
+        console.log(result.errors);
+        res.send(result.errors);
+        return;
+    }
 
     const conn= await connect();
     

@@ -4,17 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/styles.css">
+    <script src ="scripts/client-validation.js" defer></script>
     <title>Create a New Post</title>
 </head>
 <body>
 
     <div class="form-container">
         <h1>Create a New Post</h1>
-        <form action="/submit" method="post">
+        <form action="/submit" method="post" id="post-blog">
 
             <input type="text" name="author" placeholder="Author" >
+            
 
-            <input type="text" name="title" placeholder="Title" >
+            <input type="text" name="title" placeholder="Title" id="title" >
+            <span class="err" id ="err-title">Title is required</span>
 
             <textarea name="content" placeholder="Write your post..."></textarea>
 
