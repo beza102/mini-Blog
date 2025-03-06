@@ -1,5 +1,5 @@
 document.getElementById('post-blog').onsubmit = () => {
-
+clearErrors();
 let isValid= true;
 //Validation for title
 let title = document.getElementById('title').value.trim();
@@ -14,8 +14,11 @@ if(content === "" || content.length < 10) {
     isValid = false;
 }
 
-
-
+let author = document.getElementById('author').value.trim();
+if(author === "" || author.search('\\d') !== -1 ) {
+    document.getElementById('err-author').style.display = "block";
+    isValid = false;
+}
 
 
 
