@@ -9,4 +9,8 @@ export function validateForm(data){
     if(!data.content || data.content.trim() === "" || data.content.length < 10) {
         errors.push("content is required or needs to be at least 10 characters");
     }
+
+    if(!data.author || data.content.trim() === ""  || data.author.search("\\d")){
+        errors.push("Author is required and may not contain numbers")
+    }
 }
